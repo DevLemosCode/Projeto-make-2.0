@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Itens no Estoque</title>
+</head>
+<body>
+    <h1>Itens no Estoque</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Data de Entrega</th>
+                <th>Custo Unitário</th>
+                <th>Custo Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in itens %}
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.quantidade }}</td>
+                <td>{{ item.data_entrega }}</td>
+                <td>{{ item.custo_unitario }}</td>
+                <td>{{ item.custo_total }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum item encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'registrar_item' %}">Adicionar Novo Item</a>
+</body>
+</html>
